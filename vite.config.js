@@ -3,10 +3,10 @@ import react from '@vitejs/plugin-react';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [react()],
-    resolve: {
-        alias: {
-            '@styles': '/src/styles/',
-        },
+  plugins: [react()],
+  resolve: {
+    alias: {
+      '@styles': '/src/styles/',
     },
+  },
 });

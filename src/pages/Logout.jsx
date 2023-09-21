@@ -1,12 +1,9 @@
-import '@styles/pages/App.module.css';
 import ProtectedRoute from '../components/utils/ProtectedRoute';
 
-export function App() {
+export default function Logout() {
   return (
     <ProtectedRoute>
-      <h1>Hello World</h1>
+      <div>Logout</div>;
     </ProtectedRoute>
   );
 }
-
-export default App;

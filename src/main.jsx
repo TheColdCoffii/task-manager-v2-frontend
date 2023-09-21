@@ -7,36 +7,55 @@ import LandingPage from './pages/LandingPage';
 import AppHeader from './components/layout/AppHeader';
 import App from './pages/App';
 import Wrapper from './components/layout/Wrapper';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import MainProvider from './context/MainProvider';
+import Logout from './pages/Logout';
 
 const router = createBrowserRouter([
-    {
-        element: <Header />,
+  {
+    element: <Header />,
+    children: [
+      {
+        element: <Wrapper />,
         children: [
-            {
-                element: <Wrapper />,
-                children: [
-                    {
-                        path: '/',
-                        index: true,
-                        element: <LandingPage />,
-                    },
-                ],
-            },
+          {
+            path: '/',
+            index: true,
+            element: <LandingPage />,
+          },
         ],
-    },
-    {
-        element: <AppHeader />,
-        children: [
-            {
-                path: '/app',
-                element: <App />,
-            },
-        ],
-    },
+      },
+      {
+        path: '/login',
+        element: <Login />,
+      },
+      {
+        path: '/register',
+        element: <Register />,
+      },
+      {
+        path: '/logout',
+        element: <Logout />,
+      },
+    ],
+  },
+
+  {
+    element: <AppHeader />,
+    children: [
+      {
+        path: '/app',
+        element: <App />,
+      },
+    ],
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-    <React.StrictMode>
-        <RouterProvider router={router} />
-    </React.StrictMode>
+  <React.StrictMode>
+    <MainProvider>
+      <RouterProvider router={router} />
+    </MainProvider>
+  </React.StrictMode>
 );
